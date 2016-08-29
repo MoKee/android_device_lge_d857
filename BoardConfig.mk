@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-# inherit from common g3
--include device/lge/g3-common/BoardConfigCommon.mk
+# inherit from common g3dual
+-include device/lge/g3dual-common/BoardConfigCommon.mk
 
 TARGET_OTA_ASSERT_DEVICE := g3,d856,d857,d858,d859
 

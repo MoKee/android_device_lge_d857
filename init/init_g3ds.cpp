@@ -28,9 +28,9 @@
  */
 
 #include <stdlib.h>
+#include <cutils/properties.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
 #include "log.h"
 #include "util.h"
 
@@ -55,7 +55,7 @@ void vendor_load_properties()
     char device[PROP_VALUE_MAX];
     char serialno[PROP_VALUE_MAX];
 
-    property_get("ro.boot.serialno", serialno);
+    property_get("ro.boot.serialno", serialno, NULL);
 
     if (strstr(serialno, "D856")) {
         /* CIS */
@@ -94,6 +94,6 @@ void vendor_load_properties()
         property_set("ro.product.model", "LG-D859");
     } 
 
-    property_get("ro.product.device", device);
+    property_get("ro.product.device", device, NULL);
     ERROR("Found device: %s setting build properties for %s device\n", serialno, device);
 }
